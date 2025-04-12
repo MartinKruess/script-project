@@ -72,9 +72,7 @@ def add_mode(modis, Entry_add_mode, frame_modis, change_mode):
             Entry_add_mode.delete(0, "end")
             return
         else:
-            print("nope!")
             continue
-        print("Alle 6 Modis vergeben!")
 
 
 # delete mode
@@ -84,7 +82,6 @@ def delete_mode(modis, Entry_delete_mode, frame_modis, change_mode):
         print("Systemmodi dürfen nicht gelöscht werden.")
         return False
     modis[index]["title"] = ""
-    print(modis)
     render_modis(modis, frame_modis, change_mode)
     Entry_delete_mode.delete(0, "end")
     return True

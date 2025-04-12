@@ -3,6 +3,9 @@ from tkinter import *
 import customtkinter as ctk
 import pygetwindow as getWindow
 
+# Libs (Config)
+from libs.rules import not_allowed_titles, window_shorts
+
 # Modules (refactoring)
 from modules.modi_controller import modis, delete_mode, render_modis, delete_mode, add_mode
 from modules.set_label import label_window
@@ -14,13 +17,7 @@ from modules.generate_modi_btn import generate_modi_btn
 def log(obj):
     pprint(obj, expand_all=True)
 
-not_allowed_titles = [
-    "Einstellungen",
-    "Microsoft Text Input Application",
-    "Program Manager",
-    "GX Corner – Opera"
-]
-window_shorts = ["Discord", "Chatterino", "OBS", "Audacity", "Photoshop", "After Effects", "Opera", "Visual Studio Code"]
+
 current_mode_index = 0
 
 # 1. Fenster erfassen und eigene Struktur bauen
@@ -49,8 +46,10 @@ for window in activeWindows:
 
 # 2. GUI-Funktion: Modus wechseln
 def change_mode(i):
+    print("change_mode", i,)
     global current_mode_index
     current_mode_index = i
+    status_var.set(modis[current_mode_index]["title"].upper())
 
 # 3. GUI-Fenster erstellen
 ctk.set_appearance_mode("dark")
@@ -66,24 +65,25 @@ root.resizable(False, False)
 # GUI-Struktur
 frame_modis = ctk.CTkFrame(
     master=root,
-    width= 290,
+    width= 280,
     height=110
 )
-frame_modis.place(x=20, y=20)
+frame_modis.place(x=20, y=40)
 frame_add_del = ctk.CTkFrame(
     master=root,
-    width= 290,
+    width= 265,
     height=110
 )
-frame_add_del.place(x=210, y=20)
-
+frame_add_del.place(x=310, y=40)
 
 render_modis(modis, frame_modis, change_mode)
+
+status_var = ctk.StringVar(value=modis[current_mode_index]["title"].upper())
 
 # ACTIVE MODE
 Label_active_mode = ctk.CTkLabel(
     master=root,
-    text=modis[current_mode_index]["title"].upper(),
+    textvariable=status_var,
     font=("Impact", 14),
     text_color="#009dff",
     height=25,
@@ -94,9 +94,10 @@ Label_active_mode = ctk.CTkLabel(
 )
 Label_active_mode.place(x=530, y=0)
 
+
 # ADD LABEL
 Entry_add_mode = ctk.CTkEntry(
-    master=root,
+    master=frame_add_del,
     placeholder_text="add Label",
     placeholder_text_color="#999999",
     font=("Arial", 14),
@@ -109,12 +110,12 @@ Entry_add_mode = ctk.CTkEntry(
     bg_color="#1c1c1c",
     fg_color="#242424",
     )
-Entry_add_mode.place(x=330, y=20)
+Entry_add_mode.place(x=20, y=20)
 Entry_add_mode.bind("<Return>", lambda event: add_mode(modis, Entry_add_mode, frame_modis, change_mode))
 
 # Delete LABEL
 Entry_delete_mode = ctk.CTkEntry(
-    master=root,
+    master=frame_add_del,
     placeholder_text="delete Label",
     placeholder_text_color="#999999",
     font=("Arial", 14),
@@ -127,7 +128,7 @@ Entry_delete_mode = ctk.CTkEntry(
     bg_color="#1c1c1c",
     fg_color="#242424",
     )
-Entry_delete_mode.place(x=330, y=60)
+Entry_delete_mode.place(x=20, y=60)
 Entry_delete_mode.bind("<Return>", lambda event: delete_mode(modis, Entry_delete_mode, frame_modis, change_mode))
 
 
