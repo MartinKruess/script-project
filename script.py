@@ -6,12 +6,21 @@ import pygetwindow as getWindow
 # Libs (Config)
 from libs.rules import not_allowed_titles, window_shorts
 
+# GUI (Optik)
+from gui.generate_modi_btn import generate_modi_btn
+from gui.generate_ui import generate_ui
+from libs.hotkey_manager import generate_hotkeys
+from gui.hotkey_ui import render_hotkeys, render_hotkeys_table
+
+# GUI (Frames)
+from gui.structures.modi_frame import create_frame_modis
+from gui.structures.add_del_frame import create_frame_add_del
+from gui.structures.hotkey_frame import create_frame_hotkeys
+
 # Modules (refactoring)
 from modules.modi_controller import modis, delete_mode, render_modis, delete_mode, add_mode
 from modules.set_label import label_window
-from modules.generate_ui import generate_ui
 from modules.simplify_title import simplify_title
-from modules.generate_modi_btn import generate_modi_btn
 
 # Debug-Ausgabe (ich)
 def log(obj):
@@ -53,30 +62,32 @@ def change_mode(i):
 
 # 3. GUI-Fenster erstellen
 ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("blue")
+ctk.set_default_color_theme("dark-blue")
 
 # Main Window Properties
 root = ctk.CTk()
 root.title("Controll Center - Dashboard")
 root.geometry("600x800")
-root.configure(bg="#242639")
+root.configure(bg="#242629")
 root.resizable(False, False)
 
 # GUI-Struktur
-frame_modis = ctk.CTkFrame(
-    master=root,
-    width= 280,
-    height=110
-)
-frame_modis.place(x=20, y=40)
-frame_add_del = ctk.CTkFrame(
-    master=root,
-    width= 265,
-    height=110
-)
+
+# Modis
+frame_modis = create_frame_modis(root)
+frame_modis.place(x=15, y=40)
+frame_add_del = create_frame_add_del(root)
 frame_add_del.place(x=310, y=40)
 
+# Hotkeys
+frame_hotkeys = create_frame_hotkeys(root)
+frame_hotkeys["container"].place(x=20, y=170)
+
+# load Modi_btns in frame
 render_modis(modis, frame_modis, change_mode)
+generate_hotkeys(change_mode)
+# render_hotkeys(frame_hotkeys["preview"])
+render_hotkeys_table(frame_hotkeys["preview"])
 
 status_var = ctk.StringVar(value=modis[current_mode_index]["title"].upper())
 
@@ -131,9 +142,6 @@ Entry_delete_mode = ctk.CTkEntry(
 Entry_delete_mode.place(x=20, y=60)
 Entry_delete_mode.bind("<Return>", lambda event: delete_mode(modis, Entry_delete_mode, frame_modis, change_mode))
 
-
-# button = ctk.CTkButton(root, text="Modus wechseln", command=change_mode)
-# button.grid(row=1, column=0, columnspan=2, pady=(0, 16))
 
 # 4. Fensterliste anzeigen
 # generate_ui(windows, root)

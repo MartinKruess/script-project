@@ -2,9 +2,9 @@ def generate_modi_btn(mode_title, mode_bg, mode_txt, i, root, change_mode):
     new_btn = {
         "master": root,
         "text": mode_title,
-        "font": ("Teko", 18),
+        "font":("Teko", 22),
         "text_color": mode_txt or "#ffffff",
-        "height": 26,
+        "height": 25,
         "width": 75,
         "corner_radius" :10,
         "bg_color": "#242639",

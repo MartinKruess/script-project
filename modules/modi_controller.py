@@ -1,6 +1,6 @@
 import tkinter.font as tkfont
 import customtkinter as ctk
-from modules.generate_modi_btn import generate_modi_btn
+from gui.generate_modi_btn import generate_modi_btn
 
 # App Modis
 modis = [
@@ -53,13 +53,13 @@ def render_modis(modis, parent_frame, change_mode):
         mode_title = f"Btn_{mode["title"]}"
         mode_title = ctk.CTkButton(**generate_modi_btn(mode["title"], mode["bg_color"], mode["color"], i, parent_frame, change_mode))
         if i != 0 and i < 3:
-            mode_title.place(x=20 + 10 * i + i * 75, y=20)
+            mode_title.place(x=20 + 10 * i + i * 75, y=15)
         elif i == 3:
             mode_title.place(x=20, y=60)
         elif i >= 3:
             mode_title.place(x=20 + 10 * (i - 3) + (i -3) * 75, y=60)
         else:
-            mode_title.place(x=20, y=20)
+            mode_title.place(x=20, y=15)
 
 # ADD Mode
 def add_mode(modis, Entry_add_mode, frame_modis, change_mode):
