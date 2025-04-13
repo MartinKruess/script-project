@@ -87,7 +87,7 @@ frame_hotkeys["container"].place(x=20, y=170)
 render_modis(modis, frame_modis, change_mode)
 generate_hotkeys(change_mode)
 # render_hotkeys(frame_hotkeys["preview"])
-render_hotkeys_table(frame_hotkeys["preview"])
+render_hotkeys_table(frame_hotkeys["preview"], modis)
 
 status_var = ctk.StringVar(value=modis[current_mode_index]["title"].upper())
 

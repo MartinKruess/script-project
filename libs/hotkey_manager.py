@@ -40,7 +40,7 @@ hotkeys = [
     },
     {
         "hotkey": "ctrl+F7",
-        "path": "",
+        "path": "test",
         "type": "execute"
     },
     {
