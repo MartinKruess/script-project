@@ -1,64 +1,12 @@
 import keyboard
 import subprocess
 import webbrowser
+import json
 
-hotkeys = [
-    {
-        "hotkey": "alt+^",
-        "increment": 1,
-        "type": "mode_next"
-    },
-    {
-        "hotkey": "ctrl+F1",
-        "mode_index": 0,
-        "type": "mode"
-    },
-    {
-        "hotkey": "ctrl+F2",
-        "mode_index": 1,
-        "type": "mode"
-    },
-    {
-        "hotkey": "ctrl+F3",
-        "mode_index": 2,
-        "type": "mode"
-    },
-    {
-        "hotkey": "ctrl+F4",
-        "mode_index": 3,
-        "type": "mode"
-    },
-    {
-        "hotkey": "ctrl+F5",
-        "mode_index": 4,
-        "type": "mode"
-    },
-    {
-        "hotkey": "ctrl+F6",
-        "mode_index": 5,
-        "type": "mode"
-    },
-    {
-        "hotkey": "ctrl+F7",
-        "path": "test",
-        "type": "execute"
-    },
-    {
-        "hotkey": "ctrl+F8",
-        "path": "",
-        "type": "execute"
-    },
-    {
-        "hotkey": "ctrl+F9",
-        "path": "",
-        "type": "execute"
-    },
-    {
-        "hotkey": "ctrl+F10",
-        "path": "",
-        "type": "execute"
-    },
-]
+with open("data/config.json", "r", encoding="utf-8") as f:
+    config = json.load(f)
+
+hotkeys = config["hotkeys"]
 
 def generate_hotkeys(change_mode):
     for hk in hotkeys:

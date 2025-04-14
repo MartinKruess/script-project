@@ -18,9 +18,9 @@ def create_frame_hotkeys(root):
     )
     frame_hotkeys_preview.place(x=16, y=20)
     frame_hotkeys_preview.grid_propagate(False)
-    frame_hotkeys_preview.grid_columnconfigure(0, minsize=120)
-    frame_hotkeys_preview.grid_columnconfigure(1, minsize=90)
-    frame_hotkeys_preview.grid_columnconfigure(2, minsize=130)
+    frame_hotkeys_preview.grid_columnconfigure(0, minsize=160)
+    frame_hotkeys_preview.grid_columnconfigure(1, minsize=140)
+    frame_hotkeys_preview.grid_columnconfigure(2, minsize=80)
 
     # right -> set hotkey command
     # frame_hotkeys_setter = ctk.CTkFrame(

@@ -1,46 +1,13 @@
 import tkinter.font as tkfont
 import customtkinter as ctk
+import json
 from gui.generate_modi_btn import generate_modi_btn
+from libs.save_in_config import save_in_config
 
-# App Modis
-modis = [
-    {
-        "title": "free",
-        "bg_color": "#fff",
-        "color": "#000",
-        "tracked_windows": []
-    },
-    {
-        "title": "work",
-        "bg_color": "#000",
-        "color": "",
-        "tracked_windows": []
-    },
-    {
-        "title": "stream",
-        "bg_color": "#B47AEA",
-        "color": "",
-        "tracked_windows": []
-    },
-        {
-        "title": "",
-        "bg_color": "#61E294",
-        "color": "",
-        "tracked_windows": []
-    },
-        {
-        "title": "",
-        "bg_color": "#5E4B56",
-        "color": "",
-        "tracked_windows": []
-    },
-        {
-        "title": "",
-        "bg_color": "#1AC8ED",
-        "color": "",
-        "tracked_windows": []
-    },
-]
+with open("data/config.json", "r", encoding="utf-8") as f:
+    config = json.load(f)
+
+modis = config["modes"]
 
 # GUI-Modi-BTN´s
 
@@ -70,6 +37,7 @@ def add_mode(modis, Entry_add_mode, frame_modis, change_mode):
             mode["title"] = user_input[:9] or user_input
             render_modis(modis, frame_modis, change_mode)
             Entry_add_mode.delete(0, "end")
+            save_in_config(config)
             return
         else:
             continue
@@ -84,4 +52,5 @@ def delete_mode(modis, Entry_delete_mode, frame_modis, change_mode):
     modis[index]["title"] = ""
     render_modis(modis, frame_modis, change_mode)
     Entry_delete_mode.delete(0, "end")
+    save_in_config(config)
     return True
