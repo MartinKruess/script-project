@@ -1,38 +1,20 @@
 import customtkinter as ctk
 
-def create_frame_hotkeys(root):
-# Container
-    frame_hotkeys = ctk.CTkFrame(
-        master=root,
-        width= 555,
-        height=600
-    )
-
-    # Left -> show hotkey
+def create_frame_hotkeys(content_frame):
+    # Hotkey Container
     frame_hotkeys_preview = ctk.CTkFrame(
-        master=frame_hotkeys,
-        # width= 300,
-        width=520,
-        height=560,
-        fg_color="#1c1c1c"
+        master=content_frame,
+        width=550,
+        height=810,
+        fg_color="#1c1c1c",
+        border_color="#990000",
+        border_width=1
     )
-    frame_hotkeys_preview.place(x=16, y=20)
     frame_hotkeys_preview.grid_propagate(False)
-    frame_hotkeys_preview.grid_columnconfigure(0, minsize=160)
-    frame_hotkeys_preview.grid_columnconfigure(1, minsize=140)
-    frame_hotkeys_preview.grid_columnconfigure(2, minsize=80)
-
-    # right -> set hotkey command
-    # frame_hotkeys_setter = ctk.CTkFrame(
-    #     master=frame_hotkeys,
-    #     width= 200,
-    #     height=500,
-    #     fg_color="#1c1c1c"
-    # )
-    # frame_hotkeys_setter.place(x=337, y=20)
+    frame_hotkeys_preview.grid_columnconfigure(0, minsize=130)
+    frame_hotkeys_preview.grid_columnconfigure(1, minsize=100)
+    frame_hotkeys_preview.grid_columnconfigure(2, minsize=120)
+    frame_hotkeys_preview.grid_columnconfigure(3, minsize=60)
+    frame_hotkeys_preview.grid_columnconfigure(4, minsize=60)
     
-    return {
-        "container": frame_hotkeys,
-        "preview": frame_hotkeys_preview,
-        # "setter": frame_hotkeys_setter
-    }
+    return frame_hotkeys_preview

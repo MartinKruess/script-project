@@ -1,11 +1,9 @@
 import keyboard
 import subprocess
 import webbrowser
-import json
+from libs.handle_config import load_from_config
 
-with open("data/config.json", "r", encoding="utf-8") as f:
-    config = json.load(f)
-
+config = load_from_config()
 hotkeys = config["hotkeys"]
 
 def generate_hotkeys(change_mode):

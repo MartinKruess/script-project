@@ -1,12 +1,9 @@
 import tkinter.font as tkfont
 import customtkinter as ctk
-import json
 from gui.generate_modi_btn import generate_modi_btn
-from libs.save_in_config import save_in_config
+from libs.handle_config import load_from_config, save_in_config
 
-with open("data/config.json", "r", encoding="utf-8") as f:
-    config = json.load(f)
-
+config = load_from_config()
 modis = config["modes"]
 
 # GUI-Modi-BTN´s
