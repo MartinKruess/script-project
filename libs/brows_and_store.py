@@ -57,7 +57,7 @@ import customtkinter as ctk
 from pathlib import Path
 from libs.handle_config import load_from_config, save_in_config
 
-def browse_and_store(entry_ref, hk_ref, root, hotkey_list, event):
+def browse_and_store(entry_ref, hk_ref, root, hotkey_list, is_locked, event):
     path = filedialog.askopenfilename(title="Datei auswählen")
     if path:
         old_path = hk_ref.get("path")
@@ -101,6 +101,9 @@ def browse_and_store(entry_ref, hk_ref, root, hotkey_list, event):
             if path != old_path or name != old_name:
                 hk_ref["path"] = path
                 hk_ref["name"] = name
+                hk_ref["is_locked"] = True
+                is_locked.set(True)
+               
 
                 # 🔁 Speichern: ganzen Config laden, Hotkeys ersetzen, speichern
                 config = load_from_config()

@@ -20,6 +20,14 @@ def generate_nav_elements(nav_frame, switch_page):
             "active_color": "#4fffda",
             "isActive": False,
             "target": "hotkeys"
+        },
+                {
+            "title": "Screen Manager",
+            "bg_color":"#142214",
+            "color":"#999",
+            "active_color": "#4fffda",
+            "isActive": False,
+            "target": "screenmanager"
         }
     ]
 
@@ -32,7 +40,7 @@ def generate_nav_elements(nav_frame, switch_page):
 
         nav_label = ctk.CTkLabel(
             master=nav_frame,
-            width=100,
+            width=110 + (38*i),
             height=20,
             text=f""".
 {elem["title"]}""",
@@ -42,7 +50,7 @@ def generate_nav_elements(nav_frame, switch_page):
             anchor="s",
         )
     
-        nav_label.pack(padx=5, pady=4, side="left")
+        nav_label.pack(padx=4, pady=4, side="left")
         nav_label.bind("<Button-1>", lambda event, name=elem["target"]: switch_page(name))
     nav_frame.pack_propagate(False)
     

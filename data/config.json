@@ -20,7 +20,7 @@
     },
     {
       "id": 2,
-      "title": "stream",
+      "title": "Pr\u00e4sentat",
       "bg_color": "#B47AEA",
       "color": "",
       "tracked_windows": [],
@@ -29,7 +29,7 @@
     },
     {
       "id": 3,
-      "title": "",
+      "title": "test",
       "bg_color": "#61E294",
       "color": "",
       "tracked_windows": [],
@@ -38,7 +38,7 @@
     },
     {
       "id": 4,
-      "title": "Test2",
+      "title": "",
       "bg_color": "#5E4B56",
       "color": "",
       "tracked_windows": [],
@@ -93,88 +93,243 @@
     },
     {
       "hotkey": "CTRL+F7",
-      "path": "C:/Program Files/Chatterino/chatterino.exe",
+      "path": "",
       "type": "execute",
-      "name": "chatterino"
+      "name": "",
+      "is_locked": false
     },
     {
       "hotkey": "CTRL+F8",
-      "path": "C:/Users/marti/Pictures/360_F_801191341_J93OIRTiQuyIZvx6iG2G3dkGkcdjQBbE.jpg",
+      "path": "",
       "type": "execute",
-      "name": "img"
+      "name": "",
+      "is_locked": false
     },
     {
       "hotkey": "CTRL+F9",
       "path": "",
       "type": "execute",
-      "name": ""
+      "name": "",
+      "is_locked": false
     },
     {
       "hotkey": "CTRL+F10",
       "path": "",
       "type": "execute",
-      "name": ""
+      "name": "",
+      "is_locked": false
     },
     {
       "hotkey": "",
       "path": "",
       "type": "execute",
-      "name": ""
+      "name": "",
+      "is_locked": false
     },
     {
       "hotkey": "",
       "path": "",
       "type": "execute",
-      "name": ""
+      "name": "",
+      "is_locked": false
     },
     {
       "hotkey": "",
       "path": "",
       "type": "execute",
-      "name": ""
+      "name": "",
+      "is_locked": false
     },
     {
       "hotkey": "",
       "path": "",
       "type": "execute",
-      "name": ""
+      "name": "",
+      "is_locked": false
     },
     {
       "hotkey": "",
       "path": "",
       "type": "execute",
-      "name": ""
+      "name": "",
+      "is_locked": false
     },
     {
       "hotkey": "",
       "path": "",
       "type": "execute",
-      "name": ""
+      "name": "",
+      "is_locked": false
     },
     {
       "hotkey": "",
       "path": "",
       "type": "execute",
-      "name": ""
+      "name": "",
+      "is_locked": false
     },
     {
       "hotkey": "",
       "path": "",
       "type": "execute",
-      "name": ""
+      "name": "",
+      "is_locked": false
     },
     {
       "hotkey": "",
       "path": "",
       "type": "execute",
-      "name": ""
+      "name": "",
+      "is_locked": false
     }
   ],
-  "window_labels": [],
   "user_settings": {
-    "last_mode": 0,
+    "last_mode": 1,
     "autostart": true,
     "theme": "dark",
     "dashboard_visible": true
-  }
+  },
+  "screens": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 1200,
+      "width_mm": 518,
+      "height_mm": 324,
+      "name": "\\\\.\\DISPLAY1",
+      "is_primary": true
+    },
+    {
+      "index": 1,
+      "x": 1920,
+      "y": 0,
+      "width": 1920,
+      "height": 1080,
+      "width_mm": 527,
+      "height_mm": 296,
+      "name": "\\\\.\\DISPLAY2",
+      "is_primary": false
+    }
+  ],
+  "window_positions": [
+    {
+      "id": 2953468,
+      "title": "Controll Center - Dashboard",
+      "label": "WORK",
+      "screen": 1,
+      "border": null,
+      "is_active": true,
+      "is_minimized": false,
+      "pos_x": 1231,
+      "pos_y": 186,
+      "width": 616,
+      "height": 939
+    },
+    {
+      "id": 67208,
+      "title": "Python Lernassistent - WorkspaceCC Entwicklungshilfe \u2013 Opera",
+      "label": "WORK",
+      "screen": 1,
+      "border": null,
+      "is_active": false,
+      "is_minimized": false,
+      "pos_x": 3070,
+      "pos_y": 63,
+      "width": 660,
+      "height": 986
+    },
+    {
+      "id": 67496,
+      "title": "save_screen_config.py - script-project - Visual Studio Code",
+      "label": "WORK",
+      "screen": 1,
+      "border": null,
+      "is_active": false,
+      "is_minimized": false,
+      "pos_x": -8,
+      "pos_y": -8,
+      "width": 1936,
+      "height": 1216
+    },
+    {
+      "id": 199036,
+      "title": "1-preparation - Visual Studio Code",
+      "label": "WORK",
+      "screen": 1,
+      "border": null,
+      "is_active": false,
+      "is_minimized": false,
+      "pos_x": 2204,
+      "pos_y": 672,
+      "width": 1200,
+      "height": 270
+    },
+    {
+      "id": 66738,
+      "title": "README.md - python - Visual Studio Code",
+      "label": "WORK",
+      "screen": 1,
+      "border": null,
+      "is_active": false,
+      "is_minimized": false,
+      "pos_x": 2395,
+      "pos_y": 63,
+      "width": 966,
+      "height": 270
+    },
+    {
+      "id": 4524352,
+      "title": "WhatsApp",
+      "label": "WORK",
+      "screen": 1,
+      "border": null,
+      "is_active": false,
+      "is_minimized": false,
+      "pos_x": 1913,
+      "pos_y": 0,
+      "width": 974,
+      "height": 547
+    },
+    {
+      "id": 67504,
+      "title": "BakkesMod",
+      "label": "WORK",
+      "screen": 1,
+      "border": null,
+      "is_active": false,
+      "is_minimized": false,
+      "pos_x": 2697,
+      "pos_y": 449,
+      "width": 365,
+      "height": 158
+    },
+    {
+      "id": 985314,
+      "title": "SteelSeries GG",
+      "label": "WORK",
+      "screen": 1,
+      "border": null,
+      "is_active": false,
+      "is_minimized": true,
+      "pos_x": -32000,
+      "pos_y": -32000,
+      "width": 160,
+      "height": 28
+    },
+    {
+      "id": 263650,
+      "title": "Discord",
+      "label": "WORK",
+      "screen": 1,
+      "border": null,
+      "is_active": false,
+      "is_minimized": true,
+      "pos_x": -32000,
+      "pos_y": -32000,
+      "width": 160,
+      "height": 28
+    }
+  ]
 }
