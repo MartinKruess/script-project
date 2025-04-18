@@ -5,4 +5,4 @@ not_allowed_titles = [
     "GX Corner – Opera"
 ]
 
-window_shorts = ["Discord", "Chatterino", "OBS", "Audacity", "Photoshop", "After Effects", "Opera", "Visual Studio Code"]
+window_shorts = ["Discord", "Chatterino", "OBS", "Audacity", "Photoshop", "After Effects", "BakkesMod", "SteelSeriesGG"]

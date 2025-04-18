@@ -1,23 +1,22 @@
-
-
 import customtkinter as ctk
 
-LABEL_OPTIONS = ["Freizeit", "Arbeit", "Hobby", "Video", "Audio", "Image", "Streamer"]
+LABEL_OPTIONS = ["FREE", "WORK", "STREAM", "Video", "Audio", "Image", "Streamer"]
 
-def create_window_label_entry(root, window, row):
+def create_window_label_entry(frame, window, row):
     """Erzeugt Label und Dropdown für ein Fenster."""
     # Titelanzeige
-    title_var = ctk.StringVar(value=window["title"])
+    title_var = ctk.StringVar(value=window["title"][0:63])
     title_label = ctk.CTkLabel(
-        master=root,
+        master=frame,
         textvariable=title_var,
-        font=("Arial", 10),
-        width=330,
-        wraplength=330,
+        font=("Teko", 20),
+        width=395,
+        # wraplength=330,
         anchor="w",
-        justify="left"
+        # justify="left",
+        bg_color="#131619"
     )
-    title_label.grid(row=row, column=0, padx=5, pady=2, sticky="w")
+    title_label.grid(row=row, column=0, padx=2, pady=2, sticky="w")
 
     # Dropdown zur Label-Zuweisung
     current_label = ctk.StringVar(value=window["label"] or "Kein Label")
@@ -27,7 +26,7 @@ def create_window_label_entry(root, window, row):
         print(f'Label gesetzt: {target_window["title"]} → {target_window["label"]}')
 
     label_dropdown = ctk.CTkOptionMenu(
-        master=root,
+        master=frame,
         variable=current_label,
         values=LABEL_OPTIONS,
         command=lambda _: set_label()

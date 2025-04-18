@@ -1,21 +1,22 @@
 from tkinter import *
 import customtkinter as ctk
-import pygetwindow as getWindow
 
 # Pages
+from pages.tutorial.welcome import show_welcome_window
+
 from pages.page_home import render_home_page
 from pages.page_hotkeys import render_hotkeys_page
+from pages.page_window_list import render_window_list_page
 
 # Libs (Config)
-from libs.rules import not_allowed_titles, window_shorts
 from libs.handle_config import load_from_config, save_in_config
+from libs.get_windows import get_windows
 
 # GUI (Optik)
 from gui.nav_btn_ui import generate_nav_elements
-from gui.generate_modi_btn import generate_modi_btn
 from gui.generate_ui import generate_ui
 from libs.hotkey_manager import generate_hotkeys
-from gui.hotkey_ui import render_hotkeys, render_hotkeys_table
+from gui.hotkey_ui import render_hotkeys
 
 # GUI (Frames)
 from gui.structures.nav_frame import create_frame_nav
@@ -24,9 +25,11 @@ from gui.structures.nav_frame import create_frame_nav
 # from gui.structures.hotkey_frame import create_frame_hotkeys
 
 # Modules (refactoring)
-from modules.modi_controller import modis, delete_mode, render_modis, delete_mode, add_mode
+from modules.modi_controller import modis, render_modis
 from modules.set_label import label_window
-from modules.simplify_title import simplify_title
+
+# Screen
+from libs.save_screen_config import get_monitor_data
 
 
 config = load_from_config()
@@ -38,29 +41,12 @@ for i, mode in enumerate(config["modes"]):
         config["user_settings"]["last_mode"] = current_mode_index
         break
 
+# 1. Get Screen Info
+get_monitor_data()
+
+
 # 1. Fenster erfassen und eigene Struktur bauen
-activeWindows = getWindow.getWindowsWithTitle("")
-windows = []
-
-for window in activeWindows:
-    if not window.title.strip():
-        continue
-
-    if not window.title in not_allowed_titles:
-        first_part = window.title.split("-")
-        short_title = simplify_title(window.title, window_shorts)
-
-        state = {
-            "id": window._hWnd,
-            "title": short_title,
-            "label": None,
-            "screen": 1,
-            "border": None,
-            "is_active": window == getWindow.getActiveWindow(),
-            "is_minimized": (window.left == -32000 and window.top == -32000),
-            "handle": window,
-        }
-        windows.append(state)
+windows = get_windows("")
 
 # 2. GUI-Funktion: Modus wechseln
 def change_mode(i):
@@ -81,6 +67,9 @@ root.geometry("600x900")
 root.configure(bg="#242629")
 root.resizable(False, False)
 
+# Welcome
+show_welcome_window(root)
+
 # GUI-Struktur
 
 # Navigation
@@ -93,15 +82,20 @@ content_frame.place(x=10, y=60)
 
 
 # Navigation Logik
-def switch_page(target = "home"):
+def switch_page(target): #, nav_label={}
     global render_modis, render_hotkeys, content_frame
     for widget in content_frame.winfo_children():
         widget.destroy()
 
     if target == "home":
+        # nav_label["isActive"].set(True)
         render_home_page(modis, content_frame, change_mode)
+        # render_screen_details (kommt noch)
+        # render_save_screen_config (kommt noch)
     elif target == "hotkeys":
         render_hotkeys_page(modis, content_frame, root)
+    elif target == "screenmanager":
+        render_window_list_page(windows, content_frame)
 
 # render_modis( frame_nav, change_mode)
 generate_nav_elements(frame_nav, switch_page)
@@ -124,7 +118,6 @@ Label_active_mode = ctk.CTkLabel(
     fg_color="#1c1c1c",
 )
 Label_active_mode.place(x=490, y=0)
-
 
 # 4. Fensterliste anzeigen
 # generate_ui(windows, root)
