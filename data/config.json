@@ -93,9 +93,9 @@
     },
     {
       "hotkey": "CTRL+F7",
-      "path": "C:/Users/marti/Pictures/360_F_592429477_60pjJSrWd2TUZkkw0nVY4U3iTA2Q2UQM.jpg",
+      "path": "",
       "type": "execute",
-      "name": "Mana",
+      "name": "",
       "is_locked": false
     },
     {
@@ -190,101 +190,6 @@
     "dashboard_visible": true,
     "show_welcome": true
   },
-  "screens": [
-    {
-      "index": 0,
-      "x": 0,
-      "y": 0,
-      "width": 1920,
-      "height": 1200,
-      "width_mm": 518,
-      "height_mm": 324,
-      "name": "\\\\.\\DISPLAY1",
-      "is_primary": true
-    },
-    {
-      "index": 1,
-      "x": 1920,
-      "y": 0,
-      "width": 1920,
-      "height": 1080,
-      "width_mm": 527,
-      "height_mm": 296,
-      "name": "\\\\.\\DISPLAY2",
-      "is_primary": false
-    }
-  ],
-  "labeled_windows": [
-    {
-      "id": 67638,
-      "title": "script-project - Visual Studio Code",
-      "screen": 0,
-      "border": null,
-      "is_active": false,
-      "is_minimized": false,
-      "pos_x": -8,
-      "pos_y": -8,
-      "width": 1936,
-      "height": 1216,
-      "labels": [
-        "WORK",
-        "Stream"
-      ],
-      "process": "Code.exe",
-      "path": "C:\\Users\\marti\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
-    },
-    {
-      "id": 67092,
-      "title": "Python Lernassistent - Finale Projektphase Checkliste \u2013 Opera",
-      "screen": 1,
-      "border": null,
-      "is_active": false,
-      "is_minimized": false,
-      "pos_x": 1912,
-      "pos_y": -8,
-      "width": 1936,
-      "height": 1096,
-      "labels": [
-        "WORK",
-        "Stream"
-      ],
-      "process": "opera.exe",
-      "path": "C:\\Users\\marti\\AppData\\Local\\Programs\\Opera GX\\opera.exe"
-    },
-    {
-      "id": 723778,
-      "title": "Musik",
-      "screen": 1,
-      "border": null,
-      "is_active": false,
-      "is_minimized": false,
-      "pos_x": 2072,
-      "pos_y": 145,
-      "width": 1158,
-      "height": 633,
-      "labels": [
-        "WORK",
-        "Stream"
-      ],
-      "process": "explorer.exe",
-      "path": "C:\\Windows\\explorer.exe"
-    },
-    {
-      "id": 66956,
-      "title": "Discord",
-      "screen": 1,
-      "border": null,
-      "is_active": false,
-      "is_minimized": false,
-      "pos_x": 2317,
-      "pos_y": 111,
-      "width": 940,
-      "height": 919,
-      "labels": [
-        "Stream"
-      ],
-      "process": "Discord.exe",
-      "path": "C:\\Users\\marti\\AppData\\Local\\Discord\\app-1.0.9188\\Discord.exe"
-    }
-  ]
+  "screens": [],
+  "labeled_windows": []
 }
