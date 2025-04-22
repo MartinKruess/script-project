@@ -14,7 +14,7 @@ from modules.modi_controller import modis, delete_mode, render_modis, delete_mod
 from libs.save_screen_config import get_monitor_data, save_window_data
 from gui.render_save_screen_config import render_save_screen_config
 
-def render_home_page(modis, parent, change_mode):
+def render_home_page(modis, parent, change_mode, config):
     frame_modis = create_frame_modis(parent)
     frame_modis.place(x=15, y=10)
 
@@ -62,7 +62,7 @@ def render_home_page(modis, parent, change_mode):
 
 
     # update screen data btn
-    update_screen_data_btn = render_save_screen_config(parent, 200, 30, "Update Monitor Data", get_monitor_data)
+    update_screen_data_btn = render_save_screen_config(parent, 200, 30, "Update Monitor Data", lambda: get_monitor_data(config))
     update_screen_data_btn.place(x=15, y=150)
 
     # save screen config btn
@@ -84,5 +84,5 @@ def render_home_page(modis, parent, change_mode):
         30,
         30,
         "?",
-       lambda: open_webside("https://github.com/MartinKruess/script-project/discussions"))
+       lambda: open_webside("https://github.com/MartinKruess/script-project/blob/main/tutorial.md"))
     save_screen_config_btn.place(x=540, y=785)

@@ -8,22 +8,54 @@ modis = config["modes"]
 
 # GUI-Modi-BTN´s
 
-def render_modis(modis, parent_frame, change_mode):
+# def render_modis(modis, parent_frame, change_mode):
 
+#     for widget in parent_frame.winfo_children():
+#         widget.destroy()
+
+#     for i, mode in enumerate(modis):
+#         mode_title = f"Btn_{mode["title"]}"
+#         if len(mode_title) > 4:
+#             mode_btn = ctk.CTkButton(**generate_modi_btn(mode["title"], mode["bg_color"], mode["color"], i, parent_frame, change_mode))
+#             print("Anzahl an BTN´s", i)
+#             if i != 0 and i < 3:
+#                 mode_btn.place(x=20 + 10 * i + i * 75, y=15)
+#             elif i == 3:
+#                 mode_btn.place(x=20, y=60)
+#             elif i >= 3:
+#                 mode_btn.place(x=20 + 10 * (i - 3) + (i -3) * 75, y=60)
+#             else:
+#                 mode_btn.place(x=20, y=15)
+
+def render_modis(modis, parent_frame, change_mode):
     for widget in parent_frame.winfo_children():
         widget.destroy()
 
     for i, mode in enumerate(modis):
-        mode_title = f"Btn_{mode["title"]}"
-        mode_title = ctk.CTkButton(**generate_modi_btn(mode["title"], mode["bg_color"], mode["color"], i, parent_frame, change_mode))
-        if i != 0 and i < 3:
-            mode_title.place(x=20 + 10 * i + i * 75, y=15)
-        elif i == 3:
-            mode_title.place(x=20, y=60)
-        elif i >= 3:
-            mode_title.place(x=20 + 10 * (i - 3) + (i -3) * 75, y=60)
+        title = mode["title"]
+
+        # Nur Buttons mit Titel anzeigen
+        if not title:
+            continue
+
+        btn = ctk.CTkButton(**generate_modi_btn(
+            title,
+            mode["bg_color"],
+            mode["color"],
+            i,
+            parent_frame,
+            change_mode
+        ))
+
+        # Debug (optional)
+        print(f"Button {i+1}: {title}")
+
+        # Max. 3 Buttons pro Zeile, danach Umbruch
+        if i < 3:
+            btn.place(x=20 + i * (75 + 10), y=15)
         else:
-            mode_title.place(x=20, y=15)
+            btn.place(x=20 + (i - 3) * (75 + 10), y=60)
+
 
 # ADD Mode
 def add_mode(modis, Entry_add_mode, frame_modis, change_mode):

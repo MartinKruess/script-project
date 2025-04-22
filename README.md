@@ -1,8 +1,8 @@
-# Workspace Controll Center – Fenster- und Workflow-Management mit Python
+<!-- # Workspace Controll Center – Fenster- und Workflow-Management mit Python
 
 ## 🔍 Projektübersicht
 
-**WorkspaceCC** ist ein Python-Tool zur Verwaltung von Fenstern, Hotkeys und Programm-Workflows unter Windows.  
+**WorkspaceCC** ist ein Python-Tool zur Verwaltung von Fenstern, Hotkeys und Programm-Workflows unter Windows.
 Es ermöglicht das schnelle Umschalten zwischen individuell definierten Arbeitsmodi, die Fenster, Programme und Layouts automatisch anpassen – effizient, flexibel und visuell klar strukturiert.
 
 Das Besondere: Dieses Projekt entsteht **komplett im Rahmen meines Python-Lernprozesses**. Ziel ist es, die Sprache nicht nur zu verstehen, sondern durch ein praktisches, alltagsnahes Tool zu meistern.
@@ -96,11 +96,125 @@ script-project/
 
 ## 🤝 Noch viel zu lernen...
 
-...aber ich bin mittendrin.  
+...aber ich bin mittendrin.
 Und das hier ist kein Spielzeug, sondern ein echtes Tool – gebaut mit Leidenschaft fürs Lernen und dem Wunsch, Python **wirklich** zu verstehen.
 
 ---
 
 **Stay tuned!**
 
-> ✉️ Bei Fragen oder Interesse gern melden – Feedback immer willkommen.
+> ✉️ Bei Fragen oder Interesse gern melden – Feedback immer willkommen. -->
+
+# 🧠 WorkspaceCC – Dein smarter Fenster-Organizer für den Alltag
+
+Das **Workspace Control Center** ist mein persönliches Tool für mehr Übersicht, Fokus und Effizienz.  
+Ob "Work", "Stream", "Chill" oder "Urlaub" – mit nur einem Klick bringe ich meine Fenster genau dorthin, wo ich sie brauche.
+
+Ziel der App ist es, ein cleveres und gleichzeitig stylisches Dashboard zu bauen, mit dem man seine tägliche Fenster-Arbeitsumgebung organisieren und Hotkeys zentral verwalten kann – ohne sich täglich alles neu zusammensuchen zu müssen.
+
+## 💬 Warum das Ganze?
+
+Angefangen als kleines Python Script zu Übungszwecken, um ein wenig die Sprache zu lernen wurde aus dem kleinen Script nun ein komplexes Tool, dass mehr als meine ursprünglich geplanten Funktionen beinhaltet.
+
+WorkspaceCC ist ein übersichtliches Tool, dass mir hilft meine Projekte einfacher zu handhaben.
+
+## Vorläufiger Programmstart (zum Testen)
+
+```python
+.venv/Scripts/active
+
+python script.py
+```
+
+---
+
+## Was kann WorkspaceCC bisher?
+
+### ✅ Organisation
+
+- Willkommens Fenster mit Kurzeinleitung
+- Übersichtliches Tutorial - Help Button (unten rechts)
+- Feedback und Bugreport (Mach alles besser Knopp!)
+
+### ✅ Benutzeroberfläche
+
+- Übersichtliches UI mit Tabs (HOME / HOTKEYS / SCREEN MANAGER)
+- Live-Statusanzeige des aktiven Modus
+- Icons und ein schlichtes CustomTkinter-Design (Funktional)
+
+### ✅ Modusverwaltung
+
+- 4 Eigene Modis erstellen, benennen und löschen
+- speichern von bis 10 Fenstern pro Modus (Save Monitor Config)
+- Fenster können einem oder mehreren Modis zugeordnet sein
+- Modus wechsel via Button oder Hotkey
+
+### ✅ Fenster-Handling
+
+- Aktive Fenster werden automatisch erkannt und im Screen Manager aufgelistet
+- Position und Größe werden gespeichert
+- solide automatische Wiedererkennung von Fenstern sowie Zuordnung zu entsprechender Konfiguration
+- ScreenManager zeigt aktive Fenster an
+- Monitor Daten update via Button bei Wechsel oder drehen eines Monitors
+
+### ✅ Hotkeys
+
+- 7 Mode Hotkeys (Moduswechsel)
+- 4 Programm und Datei Hotkeys (`execute`)
+- 🔒 Single-Lock-Funktion
+- 🔄 Single-Reset-Funktion
+
+---
+
+## ✨ Geplante Features (next steps)
+
+### 🔧 Verhalten & Automatisierung
+
+- Fenster automatisch positionieren bei Moduswechsel
+- Programme oder Dateien automatisch starten, wenn ein Modus aktiviert wird
+- Zuweisung von Fenstern zu Modus über den ScreenManager (Dropdowns)
+- 9 Frei konfigurierbare Hotkeys mit Typ-Auswahl: `execute` oder `link`
+- Autostart
+
+### 🎨 UI/UX
+
+- Tooltips für Buttons und Icons
+- Ausbau des Tutorials
+- Redesign mit weiteren Tools
+- Anzeige der im Modus verwalteten Fenster und Programme (HOME)
+
+---
+
+## 🛠 Aktueller Status
+
+WorkspaceCC ist ein Projekt in aktiver Entwicklung – viele Kernfeatures laufen bereits stabil.  
+Der Fokus liegt aktuell auf dem Ausbau der Hotkey-Verwaltung, dem automatisierten Fensterverhalten und allgemeinen UI-Verbesserungen.
+
+---
+
+## 🧰 Tech-Stack
+
+### 🐍 Programmiersprache
+
+- **Python 3**
+
+### 🖼️ GUI
+
+- TKinter (basic)
+- [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) – modernes UI mit Dark-Mode-Unterstützung
+
+### 🪟 Fenstererkennung & Systemsteuerung
+
+- `pygetwindow` – Fenster erkennen, verschieben, maximieren, minimieren
+- `screeninfo` – Monitorposition und -größe abfragen
+- `subprocess` – Programme/Dateien starten
+- `os`, `platform` – Systemfunktionen & Autostart-Pfade
+- `pywin32` oder `ctypes` – Low-Level-Zugriff auf Fenster (z. B. für Handles)
+
+---
+
+## Bekannte Bugs
+
+- Screen Manager - Label Error (erwartet Str erält List)
+- Hotkeys - Event fehler beim Anlegen und Locken von Hotkeys
+- Navbar - Active Tab funktioniert nicht
