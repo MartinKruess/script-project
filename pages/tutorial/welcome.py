@@ -3,21 +3,11 @@ import webbrowser
 import json
 import os
 
-CONFIG_PATH = "config.json"
-
-def load_config():
-    if os.path.exists(CONFIG_PATH):
-        with open(CONFIG_PATH, "r") as f:
-            return json.load(f)
-    return {}
-
-def save_config(config):
-    with open(CONFIG_PATH, "w") as f:
-        json.dump(config, f, indent=4)
+from libs.handle_config import load_from_config, save_in_config
 
 def show_welcome_window(root):
-    config = load_config()
-    if config.get("show_welcome", True) is False:
+    config = load_from_config()
+    if config["user_settings"]["show_welcome"] is False:
         return  # nicht anzeigen
 
     win = ctk.CTkToplevel(root)
@@ -40,7 +30,7 @@ def show_welcome_window(root):
     ).pack(padx=20, pady=(5, 15))
 
     def open_docs():
-        webbrowser.open("https://github.com/dein-repo/WorkspaceCC")  # <- Link anpassen!
+        webbrowser.open("https://github.com/MartinKruess/script-project/blob/main/tutorial.md")
 
     ctk.CTkButton(win, text="📖 Zum GitHub-Tutorial", font=("Arial", 16, "bold"), command=open_docs).pack(pady=(5, 15))
 
@@ -53,11 +43,8 @@ def show_welcome_window(root):
     show_next_time.pack(pady=(0, 10))
 
     def close_and_save():
-        config["show_welcome"] = show_next_time.get()
-        save_config(config)
+        config["user_settings"]["show_welcome"] = show_next_time.get()
+        save_in_config(config)
         win.destroy()
 
     ctk.CTkButton(win, text="Fertig", font=("Arial", 16, "bold"), command=close_and_save).pack(pady=(0, 20))
-
-# ----------------------- WELCOME END -----------------------
-

@@ -29,7 +29,7 @@
     },
     {
       "id": 3,
-      "title": "test",
+      "title": "abc",
       "bg_color": "#61E294",
       "color": "",
       "tracked_windows": [],
@@ -184,10 +184,11 @@
     }
   ],
   "user_settings": {
-    "last_mode": 1,
+    "last_mode": 0,
     "autostart": true,
     "theme": "dark",
-    "dashboard_visible": true
+    "dashboard_visible": true,
+    "show_welcome": true
   },
   "screens": [
     {
@@ -213,123 +214,58 @@
       "is_primary": false
     }
   ],
-  "window_positions": [
+  "labeled_windows": [
     {
-      "id": 2953468,
-      "title": "Controll Center - Dashboard",
-      "label": "WORK",
-      "screen": 1,
-      "border": null,
-      "is_active": true,
-      "is_minimized": false,
-      "pos_x": 1231,
-      "pos_y": 186,
-      "width": 616,
-      "height": 939
-    },
-    {
-      "id": 67208,
-      "title": "Python Lernassistent - WorkspaceCC Entwicklungshilfe \u2013 Opera",
-      "label": "WORK",
-      "screen": 1,
-      "border": null,
-      "is_active": false,
-      "is_minimized": false,
-      "pos_x": 3070,
-      "pos_y": 63,
-      "width": 660,
-      "height": 986
-    },
-    {
-      "id": 67496,
-      "title": "save_screen_config.py - script-project - Visual Studio Code",
-      "label": "WORK",
-      "screen": 1,
+      "id": 526696,
+      "title": "script-project - Visual Studio Code",
+      "screen": 0,
       "border": null,
       "is_active": false,
       "is_minimized": false,
       "pos_x": -8,
       "pos_y": -8,
       "width": 1936,
-      "height": 1216
+      "height": 1216,
+      "labels": [
+        "WORK",
+        "Stream"
+      ],
+      "process": "Code.exe",
+      "path": "C:\\Users\\marti\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
     },
     {
-      "id": 199036,
-      "title": "1-preparation - Visual Studio Code",
-      "label": "WORK",
+      "id": 198044,
+      "title": "Python Lernassistent - Finale Projektphase Checkliste \u2013 Opera",
       "screen": 1,
       "border": null,
       "is_active": false,
       "is_minimized": false,
-      "pos_x": 2204,
-      "pos_y": 672,
-      "width": 1200,
-      "height": 270
+      "pos_x": 1912,
+      "pos_y": -8,
+      "width": 1936,
+      "height": 1096,
+      "labels": [
+        "WORK"
+      ],
+      "process": "opera.exe",
+      "path": "C:\\Users\\marti\\AppData\\Local\\Programs\\Opera GX\\opera.exe"
     },
     {
-      "id": 66738,
-      "title": "README.md - python - Visual Studio Code",
-      "label": "WORK",
-      "screen": 1,
-      "border": null,
-      "is_active": false,
-      "is_minimized": false,
-      "pos_x": 2395,
-      "pos_y": 63,
-      "width": 966,
-      "height": 270
-    },
-    {
-      "id": 4524352,
-      "title": "WhatsApp",
-      "label": "WORK",
-      "screen": 1,
-      "border": null,
-      "is_active": false,
-      "is_minimized": false,
-      "pos_x": 1913,
-      "pos_y": 0,
-      "width": 974,
-      "height": 547
-    },
-    {
-      "id": 67504,
-      "title": "BakkesMod",
-      "label": "WORK",
-      "screen": 1,
-      "border": null,
-      "is_active": false,
-      "is_minimized": false,
-      "pos_x": 2697,
-      "pos_y": 449,
-      "width": 365,
-      "height": 158
-    },
-    {
-      "id": 985314,
+      "id": 133222,
       "title": "SteelSeries GG",
-      "label": "WORK",
-      "screen": 1,
+      "screen": 0,
       "border": null,
       "is_active": false,
       "is_minimized": true,
       "pos_x": -32000,
       "pos_y": -32000,
       "width": 160,
-      "height": 28
-    },
-    {
-      "id": 263650,
-      "title": "Discord",
-      "label": "WORK",
-      "screen": 1,
-      "border": null,
-      "is_active": false,
-      "is_minimized": true,
-      "pos_x": -32000,
-      "pos_y": -32000,
-      "width": 160,
-      "height": 28
+      "height": 28,
+      "labels": [
+        "abc"
+      ],
+      "process": "SteelSeriesGGClient.exe",
+      "path": "C:\\Program Files\\SteelSeries\\GG\\SteelSeriesGGClient.exe"
     }
   ]
 }
