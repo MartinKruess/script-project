@@ -36,7 +36,7 @@ save_in_config(config)
 get_monitor_data(config)
 
 # 2. Fenster erfassen und eigene Struktur bauen
-windows = get_windows("")
+windows = get_windows()
 
 # 3. GUI-Funktion: Modus wechseln
 def change_mode(i):

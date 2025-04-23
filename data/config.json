@@ -29,7 +29,7 @@
     },
     {
       "id": 3,
-      "title": " ",
+      "title": "abc",
       "bg_color": "#61E294",
       "color": "",
       "tracked_windows": [],
@@ -38,7 +38,7 @@
     },
     {
       "id": 4,
-      "title": "A",
+      "title": "",
       "bg_color": "#5E4B56",
       "color": "",
       "tracked_windows": [],
@@ -190,6 +190,82 @@
     "dashboard_visible": true,
     "show_welcome": true
   },
-  "screens": [],
-  "labeled_windows": []
+  "screens": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 1200,
+      "width_mm": 518,
+      "height_mm": 324,
+      "name": "\\\\.\\DISPLAY1",
+      "is_primary": true
+    },
+    {
+      "index": 1,
+      "x": 1920,
+      "y": 0,
+      "width": 1920,
+      "height": 1080,
+      "width_mm": 527,
+      "height_mm": 296,
+      "name": "\\\\.\\DISPLAY2",
+      "is_primary": false
+    }
+  ],
+  "labeled_windows": [
+    {
+      "id": 526696,
+      "title": "script-project - Visual Studio Code",
+      "screen": 0,
+      "border": null,
+      "is_active": false,
+      "is_minimized": false,
+      "pos_x": -8,
+      "pos_y": -8,
+      "width": 1936,
+      "height": 1216,
+      "labels": [
+        "WORK",
+        "Stream"
+      ],
+      "process": "Code.exe",
+      "path": "C:\\Users\\marti\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+    },
+    {
+      "id": 198044,
+      "title": "Python Lernassistent - Finale Projektphase Checkliste \u2013 Opera",
+      "screen": 1,
+      "border": null,
+      "is_active": false,
+      "is_minimized": false,
+      "pos_x": 1912,
+      "pos_y": -8,
+      "width": 1936,
+      "height": 1096,
+      "labels": [
+        "WORK"
+      ],
+      "process": "opera.exe",
+      "path": "C:\\Users\\marti\\AppData\\Local\\Programs\\Opera GX\\opera.exe"
+    },
+    {
+      "id": 133222,
+      "title": "SteelSeries GG",
+      "screen": 0,
+      "border": null,
+      "is_active": false,
+      "is_minimized": true,
+      "pos_x": -32000,
+      "pos_y": -32000,
+      "width": 160,
+      "height": 28,
+      "labels": [
+        "abc"
+      ],
+      "process": "SteelSeriesGGClient.exe",
+      "path": "C:\\Program Files\\SteelSeries\\GG\\SteelSeriesGGClient.exe"
+    }
+  ]
 }

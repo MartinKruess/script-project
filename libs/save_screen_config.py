@@ -31,33 +31,36 @@ def get_monitor_data(config):
     save_in_config(config)
     print("New Screen Data are Saved!")
 
+def save_window_data(call="", dropdown_label=None, modified_window=None):
 
-
-
-def save_window_data():
     config = load_from_config()
     modis = config["modes"]
     current_mode_id = config["user_settings"]["last_mode"]
-    current_label = modis[current_mode_id]["title"]
+    current_label = dropdown_label or modis[current_mode_id]["title"]
     
     if current_label == "FREE":
         return
 
-    current_windows = get_windows(label=None)
+    if modified_window:
+        current_windows = [modified_window]
+    else:
+        current_windows = get_windows()
+
     stored_windows = config.get("labeled_windows", [])
 
     for win in current_windows:
         match = find_matching_window(win, stored_windows)
 
+        if ((match and match.get("is_minimized"))
+            or win.get("is_minimized")
+            or win.get("title") == "WorkspaceCC - Workspace Control Center") and not call:
+            continue
+
         if match:
-            if match["is_minimized"]:
-                continue
             # Label ergänzen, falls noch nicht enthalten
             if current_label not in match.get("labels", []):
                 match["labels"].append(current_label)
         else:
-            if win["is_minimized"] or win["title"] == "WorkspaceCC - Workspace Control Center":
-                continue
             # Neues Fensterobjekt mit aktuellem Label anlegen
             win["labels"] = [current_label]
             stored_windows.append(win)

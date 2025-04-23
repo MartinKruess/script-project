@@ -16,7 +16,7 @@ def calculate_screen_for_window(x, y, w_width, w_height, screens):
             return screen["index"]
     return 0
 
-def get_windows(label):
+def get_windows():
     activeWindows = getWindow.getWindowsWithTitle("")
     windows = []
 

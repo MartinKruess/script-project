@@ -8,25 +8,6 @@ modis = config["modes"]
 
 # GUI-Modi-BTN´s
 
-# def render_modis(modis, parent_frame, change_mode):
-
-#     for widget in parent_frame.winfo_children():
-#         widget.destroy()
-
-#     for i, mode in enumerate(modis):
-#         mode_title = f"Btn_{mode["title"]}"
-#         if len(mode_title) > 4:
-#             mode_btn = ctk.CTkButton(**generate_modi_btn(mode["title"], mode["bg_color"], mode["color"], i, parent_frame, change_mode))
-#             print("Anzahl an BTN´s", i)
-#             if i != 0 and i < 3:
-#                 mode_btn.place(x=20 + 10 * i + i * 75, y=15)
-#             elif i == 3:
-#                 mode_btn.place(x=20, y=60)
-#             elif i >= 3:
-#                 mode_btn.place(x=20 + 10 * (i - 3) + (i -3) * 75, y=60)
-#             else:
-#                 mode_btn.place(x=20, y=15)
-
 def render_modis(modis, parent_frame, change_mode):
     for widget in parent_frame.winfo_children():
         widget.destroy()
@@ -59,10 +40,11 @@ def render_modis(modis, parent_frame, change_mode):
 
 # ADD Mode
 def add_mode(modis, Entry_add_mode, frame_modis, change_mode):
-    user_input = Entry_add_mode.get()
+    user_input = Entry_add_mode.get().strip()
 
     for mode in modis:
         if mode["title"] == "":
+            print(mode["title"])
             mode["title"] = user_input[:9] or user_input
             render_modis(modis, frame_modis, change_mode)
             Entry_add_mode.delete(0, "end")

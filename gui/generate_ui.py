@@ -1,11 +1,13 @@
 import customtkinter as ctk
-import json
+from libs.save_screen_config import save_window_data
+from libs.handle_config import load_from_config
 
-LABEL_OPTIONS = ["FREE", "WORK", "STREAM", "Video", "Audio", "Image", "Streamer"]
+def get_label_options():
+    config = load_from_config()
+    return [mode["title"] for mode in config["modes"] if mode["title"].strip() != ""]
 
 def create_window_label_entry(frame, window, row):
     """Erzeugt Label und Dropdown für ein Fenster."""
-    # Titelanzeige
     title_var = ctk.StringVar(value=window["title"][0:63])
     title_label = ctk.CTkLabel(
         master=frame,
@@ -17,17 +19,25 @@ def create_window_label_entry(frame, window, row):
     )
     title_label.grid(row=row, column=0, padx=2, pady=2, sticky="w")
 
-    # Dropdown zur Label-Zuweisung
-    current_label = ctk.StringVar(value=window["label"] or "Kein Label")
+    # Aktuelle Label-Logik
+    labels = window.get("labels", [])
+    first_label = labels[0] if labels else "Kein Label"
+    current_label = ctk.StringVar(value=first_label)
 
     def set_label(selected_label=None, target_window=window, label_var=current_label):
-        target_window["label"] = label_var.get()
-        print(f'Label gesetzt: {target_window["title"]} → {target_window["label"]}')
+       selected = label_var.get()
+       if selected not in target_window.get("labels", []):
+            target_window.setdefault("labels", []).append(selected)
+       save_window_data(
+            call="screenmanagement",
+            dropdown_label=selected,
+            modified_window=target_window
+        )
 
     label_dropdown = ctk.CTkOptionMenu(
         master=frame,
-        variable=current_label,
-        values=LABEL_OPTIONS,
+        variable=current_label, 
+   values=get_label_options(),  # ← immer aktuell!
         command=lambda _: set_label()
     )
     label_dropdown.grid(row=row, column=1, padx=5, pady=2, sticky="e")
