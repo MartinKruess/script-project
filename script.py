@@ -24,6 +24,7 @@ from modules.modi_controller import modis, render_modis
 
 # Screen
 from libs.save_screen_config import get_monitor_data
+from libs.pos_windows import positionate_windows, find_window
 
 config = load_from_config()
 
@@ -45,6 +46,13 @@ def change_mode(i):
     config = load_from_config()
     status_var.set(modis[current_mode_index]["title"].upper())
     config["user_settings"]["last_mode"] = current_mode_index
+
+
+    windows = config["labeled_windows"]
+    mode_windows = list(filter(lambda win: find_window(win, modis[current_mode_index]["title"]), windows))
+    print("Windows of mode",  mode_windows)
+
+    positionate_windows(mode_windows)
     save_in_config(config)
 
 # 4. GUI-Fenster erstellen

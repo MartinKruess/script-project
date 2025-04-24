@@ -61,7 +61,6 @@ def render_home_page(modis, parent, change_mode, config):
     Entry_delete_mode.place(x=20, y=60)
     Entry_delete_mode.bind("<Return>", lambda event: delete_mode(modis, Entry_delete_mode, frame_modis, change_mode))
 
-
     # update screen data btn
     update_screen_data_btn = render_save_screen_config(parent, 200, 30, "Update Monitor Data", lambda: get_monitor_data(config))
     update_screen_data_btn.place(x=15, y=150)

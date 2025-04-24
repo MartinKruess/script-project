@@ -93,10 +93,10 @@
     },
     {
       "hotkey": "CTRL+F7",
-      "path": "",
+      "path": "C:/Users/marti/Pictures/360_F_801191341_J93OIRTiQuyIZvx6iG2G3dkGkcdjQBbE.jpg",
       "type": "execute",
-      "name": "",
-      "is_locked": false
+      "name": "mana",
+      "is_locked": true
     },
     {
       "hotkey": "CTRL+F8",
@@ -184,7 +184,7 @@
     }
   ],
   "user_settings": {
-    "last_mode": 0,
+    "last_mode": 1,
     "autostart": true,
     "theme": "dark",
     "dashboard_visible": true,
@@ -256,9 +256,9 @@
       "screen": 0,
       "border": null,
       "is_active": false,
-      "is_minimized": true,
-      "pos_x": -32000,
-      "pos_y": -32000,
+      "is_minimized": false,
+      "pos_x": 100,
+      "pos_y": 100,
       "width": 160,
       "height": 28,
       "labels": [
